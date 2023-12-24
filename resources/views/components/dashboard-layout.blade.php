@@ -19,6 +19,7 @@
         <span class="font-inter font-bold text-lg">Website</span>
         <a href="/" class="font-inter text-lg mt-4 hover:text-develobe-500 duration-200">Home</a>
         <a href="/movies" class="font-inter text-lg mt-4 hover:text-develobe-500 duration-200">Kategori</a>
+        <a href="/PetaHistori" class="font-inter text-lg mt-4 hover:text-develobe-500 duration-200">Geographic Information Systems</a>
         </div>
 
         <div class="w-3/12 flex flex-col">

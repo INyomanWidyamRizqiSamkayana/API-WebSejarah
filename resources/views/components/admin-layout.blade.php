@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Admin Shop</title>
+    <title>Admin Historia</title>
     <link
       href="{{asset('style/https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap')}}"
       rel="stylesheet"
@@ -57,7 +57,7 @@
                       />
                     </svg>
                   </span>
-                  <span class="ml-2 text-sm"> Dashboards </span>
+                  <span class="ml-2 text-sm"> Admin Dashboards </span>
                   <span class="ml-auto" aria-hidden="true">
                     <!-- active class 'rotate-180' -->
                     <svg
@@ -78,10 +78,21 @@
                   <a
                     href="admin"
                     role="menuitem"
-                    class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700"
-                  >
+                    class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700">
                     Daftar Sejarah
-                  </a>                  
+                  </a>          
+                  
+                  <li>
+                                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Peta Historia<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="spot">Spot</a>
+                                </li>
+                                <li>
+                                    <a href="centre-point">Centre Point</a>
+                                </li>
+                                </ul>
+                  </a>            
                 </div>
               </div>            
             </nav>            
@@ -93,7 +104,7 @@
           <main>
             <!-- Content header -->
             <div class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
-              <h1 class="text-2xl font-semibold">Dashboard</h1>              
+              <h1 class="text-2xl font-semibold">Admin Dashboard</h1>              
             </div>
             <!-- Content -->
             <div class="mt-2">

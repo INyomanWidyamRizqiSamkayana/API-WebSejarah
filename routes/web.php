@@ -1,7 +1,11 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\API\HomeController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Backend\DataaController;
+use App\Http\Controllers\Backend\SpotController;
+use App\Http\Controllers\Backend\CentrePointController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,5 +41,13 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/PetaHistori', [HomeController::class, 'gis_map']);
+## Route Datatable
+Route::get('/centre-point/data',[\App\Http\Controllers\Backend\DataaController::class,'centrepoint'])->name('centre-point.data');
+Route::get('/spot/data',[\App\Http\Controllers\Backend\DataaController::class,'spot'])->name('spot.data');
+
+Route::resource('centre-point',(\App\Http\Controllers\Backend\CentrePointController::class));
+Route::resource('spot',(\App\Http\Controllers\Backend\SpotController::class));
 
 require __DIR__.'/auth.php';

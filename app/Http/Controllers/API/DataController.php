@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\History;
 use App\Models\Kategori;
+use App\Models\Centre_Point;
+use App\Models\Spot;
+
 
 class DataController extends Controller
 {
@@ -136,4 +139,6 @@ class DataController extends Controller
         ]);
     }
     }
+
+    
 }

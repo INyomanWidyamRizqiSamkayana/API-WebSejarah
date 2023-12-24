@@ -5,7 +5,9 @@
             class="uppercase text-base mx-5 text-develobe-500 hover:text-develobe-500 duration-200 font-inter">HOME</a>
         <a href="/tv-shows"
             class="uppercase text-base mx-5 text-black hover:text-develobe-500 duration-200 font-inter">KATEGORI</a>
-    </div>
+            <a href="/PetaHistori"
+            class="uppercase text-base mx-5 text-black hover:text-develobe-500 duration-200 font-inter">PETA HISTORI</a>
+        </div>
 
     <div class="w-1/3 flex items-center justify-center">
         <a href="/"

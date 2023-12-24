@@ -1,6 +1,8 @@
 <?php
 use App\Http\Controllers\API\DataController;
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\HomeController;
+use App\Http\Controllers\Backend\DataaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 /*
@@ -24,4 +26,7 @@ Route::group(['middleware'=>'auth:sanctum'], function() {
     Route::get('/kategori', [DataController::class, 'kategori']);
 });
 
-
+ Route::get('/PetaHistori', [HomeController::class, 'gis_map']); 
+ 
+ ##Data Table Route
+ Route::get('/centre-point/data',[\App\Http\Controllers\Backend\DataaController::class,'centrepoint'])->name('centre-point.data');
