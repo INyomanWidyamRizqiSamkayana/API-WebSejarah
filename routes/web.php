@@ -42,7 +42,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/PetaHistori', [HomeController::class, 'gis_map']);
+Route::get('/PetaHistori',[HomeController::class,'spots']);
+Route::get('/detail-spot/{slug}',[HomeController::class,'detailSpot'])->name('detail-spot');
+
+Route::get('/Peta', [HomeController::class, 'gis_map']);
 ## Route Datatable
 Route::get('/centre-point/data',[\App\Http\Controllers\Backend\DataaController::class,'centrepoint'])->name('centre-point.data');
 Route::get('/spot/data',[\App\Http\Controllers\Backend\DataaController::class,'spot'])->name('spot.data');

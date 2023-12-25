@@ -1,32 +1,41 @@
-@extends('layouts.frontend')
-
-@section('css')
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-
+<x-dashboard-layout>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@3.0.9/dist/leaflet-search.src.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@2.4.0/Control.FullScreen.min.css">
-@endsection
+   
+   <style>
+    #map {
+            height: 600px;
+            width: 1490px;
+        }
 
-@section('content')
+        /* Atur jarak di bagian atas dan bawah kartu */
+        .card {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* Atur jarak di bagian atas dan bawah container */
+        .container {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            
+        }
+        </style>
     <div class="container my-4">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Card title</div>
                     <div class="card-body">
-                        <div id="map" style="height: 500px"></div>
+                        <div id="map" style="height: 800px width: 1220px"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-@endsection
 
-@push('javascript')
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="https://cdn.jsdelivr.net/npm/leaflet-search@3.0.9/dist/leaflet-search.src.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@2.4.0/Control.FullScreen.min.js"></script>
 
@@ -104,4 +113,4 @@
 
         const layerControl = L.control.layers(baseLayers).addTo(map)
     </script>
-@endpush
+</x-dashboard-layout>

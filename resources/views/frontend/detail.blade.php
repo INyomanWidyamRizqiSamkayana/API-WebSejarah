@@ -1,30 +1,69 @@
-@extends('layouts.frontend')
+<x-dashboard-layout>
 
-@section('css')
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@2.4.0/Control.FullScreen.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
-        html,
-        body {
+        #map {
+            height: 5   0vh; /* 70% dari tinggi viewport */
+            width: 100%;
+        }
+       
+        html, body {
             height: 100%;
             margin: 0;
+            font-family: 'Arial', sans-serif;
         }
 
         .leaflet-container {
-            height: 400px;
+            height: 400px; /* 70% dari tinggi viewport */
             width: 600px;
             max-width: 100%;
             max-height: 100%;
         }
-    </style>
-@endsection
 
-@section('content')
-    <div class="container my-4">
-        <div class="row justify-content-center">
+        .container {
+            margin-top: 20px;
+        }
+
+        .card {
+            margin-bottom: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .card-header {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        h4, h5 {
+            color: #3498db;
+        }
+
+        img.img-fluid {
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .leaflet-control-layers {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+
+    <div class="container">
+        <div class="row">
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">Map Spot</div>
@@ -33,36 +72,31 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6    ">
                 <div class="card">
                     <div class="card-header">Detail Spot : {{ $spot->name }}</div>
                     <div class="card-body">
                         <p>
-                        <h4><strong>Nama Spot :</strong></h4>
-                        <h5>Nama Spot</h5>
+                            <h4><strong>Nama Spot :</strong></h4>
+                            <h5> {{ $spot->name }}</h5>
                         </p>
 
                         <p>
-                        <h4><strong>Detail :</strong></h4>
-                        <p>{{ $spot->description }}</p>
+                            <h4><strong>Detail :</strong></h4>
+                            <p>{{ $spot->description }}</p>
                         </p>
 
                         <p>
-                        <h4>
-                            <strong>Gambar</strong>
-                        </h4>
-                        <img class="img-fluid" width="200" src="{{ $spot->getImageAsset() }}" alt="">
+                            <h4><strong>Gambar</strong></h4>
+                            <img class="img-fluid" width="200" src="{{ $spot->getImageAsset() }}" alt="">
                         </p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-@endsection
 
-@push('javascript')
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@2.4.0/Control.FullScreen.min.js"></script>
 
     <script>
@@ -98,12 +132,12 @@
         }
 
         const layerControl = L.control.layers(baseLayers).addTo(map)
-        var curLocation = [{{ $spot->coordinates }}] 
+        var curLocation = [{{ $spot->coordinates }}]
 
-        var marker = new L.marker(curLocation,{
-            draggable:false
+        var marker = new L.marker(curLocation, {
+            draggable: false
         })
         map.addLayer(marker)
-        
     </script>
-@endpush
+
+</x-dashboard-layout>
